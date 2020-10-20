@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container .container-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 40px;
+  font-family: 'Krona One', sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .container-permanence-all {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0rem;
+  margin: auto;
+  width: 90%;
+  -ms-grid-columns: 150px 150px 300px 150px 150px 150px 150px;
+      grid-template-columns: 150px 150px 300px 150px 150px 150px 150px;
+  white-space: nowrap;
+}
+
+.container .container-permanence-all .header-tables {
+  padding: 1rem;
+  border: 1px solid #000;
+}
+
+.container .container-months {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 1rem;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.container .container-permanence-content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0rem;
+  margin: auto;
+  width: 90%;
+  -ms-grid-columns: 150px 150px 300px 150px 150px 150px 150px;
+      grid-template-columns: 150px 150px 300px 150px 150px 150px 150px;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.container .container-permanence-content .content-tables {
+  border: 1px solid #000;
+  padding: 1rem 0;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container [contenteditable='true'] {
+  outline: none;
+}
+
+.container #plus {
+  padding: 1rem;
+  color: #262626;
+  font-size: 30px;
+}
+/*# sourceMappingURL=style.css.map */
