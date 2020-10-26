@@ -1,5 +1,5 @@
 
-let dateToday = new Date("2020-11-10");
+let dateToday = new Date();
 let date = new Date(dateToday);
 let dateJour = date.getDay();
 let dateFomat = `${date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()}`;
@@ -27,7 +27,10 @@ dateFomat = `${newdate.getDate()+"/"+(newdate.getMonth()+1)+"/"+newdate.getFullY
 
 
 
-
+var now = new Date();
+now.setMinutes(now.getMinutes() + 30); // timestamp
+now = new Date(now); // Date object
+console.log(now);
 
 
 

@@ -7,20 +7,47 @@
 }
 body{
   height: 100vh;
+  background-color: #ecf0f1;
 }
 $var: ".container-asts";
 .container {
   font-family: 'Roboto', sans-serif;
+  header{
+    margin-bottom: 2rem;
+    ul{
+      display: flex;
+      justify-content: flex-end;
+      li{
+        font-family: 'Roboto';
+        font-weight: 500;
+        padding: 1rem;
+        margin-right: 5rem;
+        list-style-type: none;
+        &:hover a{
+          border-bottom: 2px solid;
+        }
+        a{
+      transition: 1s all;
 
+          padding: 1rem;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
   .container-title {
     text-align: center;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Krona One', sans-serif;
     align-items: center;
+    margin-bottom: 30px;
   }
 
   .container-permanence-all {
+
     align-items: center;
     text-align: center;
     display: grid;
@@ -34,7 +61,7 @@ $var: ".container-asts";
 
     .header-tables {
       padding: 1rem;
-      border: 1px solid #000;
+      border: 1px solid #a39f9f;
 
     }
     
@@ -47,7 +74,13 @@ $var: ".container-asts";
       font-size: 35px;
       font-weight: 600;
     }
+    .container-body{
+      position: relative;
+      perspective: 1000px;
+
+    }
     .container-permanence-content {
+      transition: 0.3s all ease-in-out;
       align-items: center;
       text-align: center;
       display: grid;
@@ -56,10 +89,14 @@ $var: ".container-asts";
       width: 90%;
       grid-template-columns:  150px 150px 300px 150px 150px 150px 150px ;
       white-space: nowrap;
-      padding: 1rem 0;
+      padding: 10px 0;
+      &:hover{
+    //box-shadow: 0px 0px 20px #df0f0f1a;
+    transform: scale(1.02);
 
+      }
       .content-tables{
-        border: 1px solid #000;
+        border: 1px solid #a39f9f;
         //white-space: nowrap;
         padding: 1rem 0;
         height: 15px;
@@ -77,9 +114,18 @@ $var: ".container-asts";
     outline: none;
 }
 #plus{
+  position: fixed;
+  right: 3rem;
+  bottom: 10%;
     padding: 1rem;
     color: #262626;
     font-size: 30px;
+    background-color: #2ecfcf;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
 }
 
 }
