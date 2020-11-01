@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script&family=Kaushan+Script&family=PT+Serif:ital,wght@1,400;1,700&family=Satisfy&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #fff;
+}
+
+.container {
+  font-family: "Caveat", sans-serif;
+}
+
+.container header {
+  margin-bottom: 2rem;
+}
+
+.container header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.container header ul li {
+  font-family: "Caveat";
+  font-weight: 500;
+  padding: 1rem;
+  margin-right: 5rem;
+  list-style-type: none;
+}
+
+.container header ul li a {
+  position: relative;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  letter-spacing: 1px;
+  padding: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #191a1a;
+}
+
+.container header ul li a:after {
+  content: '';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 3px;
+  width: 0%;
+  height: 3px;
+  background-color: #000;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+.container header ul li a:hover::after {
+  width: 100%;
+}
+
+.container .container-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  font-family: 'Kaushan Script', sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  letter-spacing: 9px;
+}
+
+.container .container-permanence-all {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  -ms-grid-columns: 150px 150px 300px 150px 150px 150px 150px;
+      grid-template-columns: 150px 150px 300px 150px 150px 150px 150px;
+  white-space: nowrap;
+  font-family: 'Kaushan Script', sans-serif;
+}
+
+.container .container-permanence-all .header-tables {
+  padding: 1rem;
+  background-color: #2abdbd;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #000;
+}
+
+.container .container-months {
+  background-color: #fff;
+  font-family: 'Kaushan Script', sans-serif;
+  border: 1px solid #000;
+  width: 1176px;
+  text-align: center;
+  padding: 1rem;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.container .container-body {
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.container .container-permanence-content {
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  -ms-grid-columns: 150px 150px 300px 150px 150px 150px 150px;
+      grid-template-columns: 150px 150px 300px 150px 150px 150px 150px;
+  white-space: nowrap;
+}
+
+.container .container-permanence-content:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.container .content-tables {
+  border: 1px solid #000;
+  padding: 1rem 0;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+[contenteditable="true"] {
+  outline: none;
+}
+
+#container-plus {
+  position: fixed;
+  right: 3rem;
+  bottom: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #2ecfcf;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+#container-plus:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+}
+
+#container-plus label {
+  position: absolute;
+}
+
+#checkbox {
+  display: none;
+}
+
+.square {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #2ecfcf;
+  -webkit-transition: all 0.75s;
+  transition: all 0.75s;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  color: #ffff;
+  font-size: 40px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}
+
+#checkbox:checked + .square {
+  -webkit-transform: rotate(180deg) !important;
+          transform: rotate(180deg) !important;
+}
+
+/* On mouse-over, add a deeper shadow */
+form {
+  margin: 2rem;
+}
+/*# sourceMappingURL=style.css.map */
