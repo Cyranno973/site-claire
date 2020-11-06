@@ -26,7 +26,8 @@ body {
       justify-content: flex-end;
       li {
         font-family: "Caveat";
-        font-weight: 500;
+        font-size: 20px;
+        font-weight: 600;
         padding: 1rem;
         margin-right: 5rem;
         list-style-type: none;
@@ -105,10 +106,13 @@ font-family: 'Kaushan Script', sans-serif;
         }
         span{
           .fas{
-
             color: #24829e;
           }
           padding: 15px;
+          &:hover{
+            cursor: pointer;
+            text-shadow: 1px 1px 2px #006eff;
+          }
         }
       }
     }
