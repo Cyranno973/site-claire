@@ -10,7 +10,3 @@ const data1 = update("PA", "2020", "08", "19", "3", {
   presence: false,
 });
 
-let semaine {
-  let jour;
-  rdv
-}

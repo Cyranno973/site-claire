@@ -48,7 +48,7 @@ body {
             bottom: 3px;
             width: 0%;
             height: 3px;
-            background-color: #000;
+            background-color:  #2ABDBD;
            
             transition: width 0.2s ease-in-out;
             
@@ -68,6 +68,7 @@ body {
     align-items: center;
     margin-bottom: 30px;
     letter-spacing: 9px;
+    font-family: 'Kaushan Script', sans-serif;
   }
 }
 .container-months{
@@ -75,14 +76,42 @@ body {
 font-size: 40px;
 font-weight: bold;
 margin-bottom: 15px;
+font-family: 'Kaushan Script', sans-serif;
 
 }
 
 .container-table{
   @extend .centered; 
   text-align: center;
+  font-family: "Caveat", sans-serif; 
   table{
     border-collapse: collapse;
+    thead{
+      background-color: #2ABDBD;
+      font-weight: bold;
+      text-transform: capitalize;
+      font-size: 25px;
+//       #2Ecfcf
+// rgb(42, 189, 189);#2ECFCF
+
+
+    }
+    tbody{
+      font-size: 22px;
+      font-weight: 600;
+      td{
+        .check{
+          display: none;
+        }
+        span{
+          .fas{
+
+            color: #24829e;
+          }
+          padding: 15px;
+        }
+      }
+    }
     td,th{
       border: 1px solid;
       padding: 1rem;

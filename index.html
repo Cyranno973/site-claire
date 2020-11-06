@@ -4,32 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="/fontawesome/css/solid.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Document</title>
 </head>
 
 <body>
   <div class="container">
     <header>
-    <ul id="lol">
-      <li><a href="index.html">pa</a></li>
-      <li><a href="psa.html">psa</a</li>
-      <li><a href="past.html">past</a></li>
-    </ul>
+      <ul id="lol">
+        <li><a href="index.html">pa</a></li>
+        <li><a href="psa.html">psa</a</li>
+        <li><a href="past.html">past</a></li>
+      </ul>
     </header>
     <div class="container-title">
       <h1>PA 2020</h1>
     </div>
-   <div contenteditable="true" class="container-months">Novembre</div>
+    <div contenteditable="true" class="container-months">Novembre</div>
     <div class="container-table">
       <table>
         <thead>
           <tr>
             <th>Date</th>
             <th>horaire</th>
-            <th>nom &prenom</th>
+            <th>nom & prenom</th>
             <th>telephone</th>
             <th>assiste</th>
             <th>Presence</th>
@@ -39,7 +38,41 @@
         </thead>
         <tbody>
           <tr>
-            <td>22/192020</td>
+            <td>22/19/2020</td>
+            <td>13H30 a 14H00</td>
+            <td>stephanie clara</td>
+            <td>06453434</td>
+            <td>8677</td>
+            <td><input type="checkbox" name="" id="presence"></td>
+            <td><input type="checkbox" name="" id="traite"></td>
+            <td>
+              <span class="pen"><i class="fas fa-pen"></i></span>
+              <span class="check"><i class="fas fa-check"></i></span>
+              <span class="trash"><i class="fas fa-trash"></i></span>
+            </td>
+          </tr>
+          <tr>
+            <td>22/19/2020</td>
+            <td>13H30 a 14H00</td>
+            <td>stephanie clara</td>
+            <td>06453434</td>
+            <td>8677</td>
+            <td><input type="checkbox" name="" id="presence"></td>
+            <td><input type="checkbox" name="" id="traite"></td>
+            <td><i class="fas fa-pen"></i><i class="fas fa-trash"></i><i class="fas fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>22/19/2020</td>
+            <td>13H30 a 14H00</td>
+            <td>stephanie clara</td>
+            <td>06453434</td>
+            <td>8677</td>
+            <td><input type="checkbox" name="" id="presence"></td>
+            <td><input type="checkbox" name="" id="traite"></td>
+            <td><i class="fas fa-pen"></i><i class="fas fa-trash"></i><i class="fas fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>22/19/2020</td>
             <td>13H30 a 14H00</td>
             <td>stephanie clara</td>
             <td>06453434</td>
@@ -51,7 +84,7 @@
         </tbody>
       </table>
     </div>
-
+  </div>
     
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
@@ -78,8 +111,8 @@
 </script>
 
 
-<script src="function.js"></script>
-  <script src="main.js"></script>
+<script src="/js/function.js"></script>
+<script src="/js/main.js"></script>
 </body>
 
 </html>
