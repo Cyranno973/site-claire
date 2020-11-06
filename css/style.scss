@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script&family=Kaushan+Script&family=PT+Serif:ital,wght@1,400;1,700&family=Satisfy&display=swap');
 
+
+$color0: #fff;
+$color1: #191a1a;
+$color2: #2ABDBD;
+$color3: #2ECFCF;
+$color4: #006eff;
+$color5: #2ECFCF;
+$color6: #f72414;
+$color7: #07d410;
+$color8: #24829e;
+
 .centered{
   display: flex;
   justify-content: center;
@@ -17,7 +28,7 @@
 }
 body {
   height: 100vh;
-  background-color: #fff;
+  background-color: $color0;
 }
 .container {
   header {
@@ -42,7 +53,7 @@ body {
           padding: 1rem;
           text-transform: uppercase;
           text-decoration: none;
-          color: #191a1a;
+          color: $color1;
           &:after{
             content: '';
             display: flex;
@@ -50,7 +61,7 @@ body {
             bottom: 3px;
             width: 0%;
             height: 3px;
-            background-color:  #2ABDBD;
+            background-color:  $color2;
            
             transition: width 0.2s ease-in-out;
             
@@ -89,7 +100,7 @@ font-family: 'Kaushan Script', sans-serif;
   table{
     border-collapse: collapse;
     thead{
-      background-color: #2ABDBD;
+      background-color: $color2;
       font-weight: bold;
       text-transform: capitalize;
       font-size: 25px;
@@ -107,12 +118,12 @@ font-family: 'Kaushan Script', sans-serif;
         }
         span{
           .fas{
-            color: #24829e;
+            color: $color8;
           }
           padding: 15px;
           &:hover{
             cursor: pointer;
-            text-shadow: 1px 1px 2px #006eff;
+            text-shadow: 1px 1px 2px $color4;
           }
         }
       }
@@ -136,7 +147,7 @@ label{
     width: 20px;
     height: 20px;
     margin: 0 auto;
-    background-color: #f72414;
+    background-color: $color6;
     transform: translateY(-50%);
     border-radius: 50%;
     box-shadow: 0 7px 10px #ffbeb8;
@@ -166,7 +177,7 @@ label:hover:before
 {
     width: 8px;
     height: 8px;
-    box-shadow: inset 0 7px 10px #ffffff;
+    box-shadow: inset 0 7px 10px $color0;
 }
 
 label:active
@@ -193,7 +204,7 @@ label:active
 {
     content: "";
     position: absolute;
-    background-color: #fff;
+    background-color: $color0;
     border-radius: 2px;
     opacity: 1;
     transition: 0.2s ease transform, 0.2s ease opacity;
@@ -220,7 +231,7 @@ label:active
 
 *[class^="presen"]:checked + label,*[class^="trait"]:checked + label
 {
-    background-color: #07d410;
+    background-color: $color7;
     box-shadow: 0 7px 10px #727272;
 }
 
@@ -236,3 +247,40 @@ label:active
     opacity: 1;
 }
 
+#container-toast{
+  position: absolute; 
+  top: 40%;
+   left: 50%; 
+  transform: translate(-50%, -50%);
+
+display: flex;
+flex-direction: column;
+@extend .centered;
+padding: 1rem;
+color: $color1;
+font-family: "Caveat", sans-serif; 
+font-weight: 900;
+position: absolute;
+  background-color: $color3;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px $color1;
+  display: none;
+
+
+  .msg{
+    @extend .centered;
+    font-size: 20px;
+  }
+  .container-choix{
+    display:flex;
+    @extend .centered;
+    .confirmer,.annuler{
+      background-color: #fff;
+      color: $color1;
+      display: block;
+      padding: 15px;
+      margin: 24px;
+      box-shadow: 1px 2px 3px $color1;
+    }
+  }
+}

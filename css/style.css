@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script&family=Kaushan+Script&family=PT+Serif:ital,wght@1,400;1,700&family=Satisfy&display=swap");
-.centered, .container-months, .container-table {
+.centered, .container-months, .container-table, #container-toast, #container-toast .msg, #container-toast .container-choix {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,8 +179,8 @@ label:before {
 label:hover:before {
   width: 8px;
   height: 8px;
-  -webkit-box-shadow: inset 0 7px 10px #ffffff;
-          box-shadow: inset 0 7px 10px #ffffff;
+  -webkit-box-shadow: inset 0 7px 10px #fff;
+          box-shadow: inset 0 7px 10px #fff;
 }
 
 label:active {
@@ -248,5 +248,50 @@ label:active {
   -webkit-transform: translate(30px);
           transform: translate(30px);
   opacity: 1;
+}
+
+#container-toast {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+  color: #191a1a;
+  font-family: "Caveat", sans-serif;
+  font-weight: 900;
+  position: absolute;
+  background-color: #2ECFCF;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 3px #191a1a;
+          box-shadow: 1px 2px 3px #191a1a;
+  display: none;
+}
+
+#container-toast .msg {
+  font-size: 20px;
+}
+
+#container-toast .container-choix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#container-toast .container-choix .confirmer, #container-toast .container-choix .annuler {
+  background-color: #fff;
+  color: #191a1a;
+  display: block;
+  padding: 15px;
+  margin: 24px;
+  -webkit-box-shadow: 1px 2px 3px #191a1a;
+          box-shadow: 1px 2px 3px #191a1a;
 }
 /*# sourceMappingURL=style.css.map */
