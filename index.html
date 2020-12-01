@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 
@@ -28,102 +28,109 @@
           <tr>
             <th>Date</th>
             <th>horaire</th>
-            <th>nom & prenom</th>
-            <th>telephone</th>
-            <th>assiste</th>
-            <th>Presence</th>
-            <th>traiter</th>
+            <th>nom & prénom</th>
+            <th>téléphone</th>
+            <th>AST</th>
+            <th class="cont-pre">Présence</th>
+            <th>traité</th>
             <th class="action">Action</th>
+            <th class="action">Notes</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td rowspan="4">22/19/2020</td>
-            <td>13H30 a 14H00</td>
-            <td>stephanie clara</td>
-            <td>06453434</td>
-            <td>8677</td>
-            <td>
-              <input class="presence" type="checkbox" name="" id="presence">
-              <label for="presence">
-                <div class="tick_mark"></div>
-              </label>
-            </td>
-            <td><input class="presence" type="checkbox" name="" id="traite">
-              <label for="traite">
-                <div class="tick_mark"></div>
-              </label></td>
-            <td>
-              <span class="pen"><i class="fas fa-pen"></i></span>
-              <span class="check"><i class="fas fa-check"></i></span>
-              <span class="trash"><i class="fas fa-trash"></i></span>
-            </td>
-          </tr>
-          <tr>
-            <td>13H30 a 14H00</td>
-            <td>stephanie clara</td>
-            <td>06453434</td>
-            <td>8677</td>
-            <td>
-              <input class="presence" type="checkbox" name="" id="presence1">
-              <label for="presence1">
-                <div class="tick_mark"></div>
-              </label>
-            </td>
-            <td><input class="presence" type="checkbox" name="" id="traite1">
-              <label for="traite1">
-                <div class="tick_mark"></div>
-              </label></td>
-            <td>
-              <span class="pen"><i class="fas fa-pen"></i></span>
-              <span class="check"><i class="fas fa-check"></i></span>
-              <span class="trash"><i class="fas fa-trash"></i></span>
-            </td>
-          </tr>
-          <tr>
-            <td>13H30 a 14H00</td>
-            <td>stephanie clara</td>
-            <td>06453434</td>
-            <td>8677</td>
-            <td>
-              <input class="presence" type="checkbox" name="" id="presence2">
-              <label for="presence2">
-                <div class="tick_mark"></div>
-              </label>
-            </td>
-            <td><input input class="presence" type="checkbox" name="" id="traite2">
-              <label for="traite2">
-                <div class="tick_mark"></div>
-              </label></td>
-            <td>
-              <span class="pen"><i class="fas fa-pen"></i></span>
-              <span class="check"><i class="fas fa-check"></i></span>
-              <span class="trash"><i class="fas fa-trash"></i></span>
-            </td>
-          </tr>
-          <tr>
-            <td>13H30 a 14H00</td>
-            <td>stephanie clara</td>
-            <td>06453434</td>
-            <td>8677</td>
-            <td>
-              <input class="presence" type="checkbox" name="" id="presence3">
-              <label for="presence3">
-                <div class="tick_mark"></div>
-              </label>
-            </td>
-            <td>
-              <input input class="presence" type="checkbox" name="" id="traite3">
-              <label for="traite3">
-                <div class="tick_mark"></div>
-              </label>
-            </td>
-            <td>
-              <span class="pen"><i class="fas fa-pen"></i></span>
-              <span class="check"><i class="fas fa-check"></i></span>
-              <span class="trash"><i class="fas fa-trash"></i></span>
-            </td>
-          </tr>
+        <tbody id="here-content-row">
+
+         
+<!--          <tr>-->
+<!--            <td rowspan="4">22/02/2020</td>-->
+<!--            <td>13H30 a 14H00</td>-->
+<!--            <td>stephanie clara</td>-->
+<!--            <td>06453434</td>-->
+<!--            <td>8677</td>-->
+<!--            <td>-->
+<!--              <input class="presence" type="checkbox" name="" id="presence">-->
+<!--              <label for="presence">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label>-->
+<!--            </td>-->
+<!--            <td><input class="presence" type="checkbox" name="" id="traite">-->
+<!--              <label for="traite">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label></td>-->
+<!--            <td>-->
+<!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+<!--              <span class="check"><i class="fas fa-check"></i></span>-->
+<!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+<!--            </td>-->
+<!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>13H30 a 14H00</td>-->
+<!--            <td>stephanie clara</td>-->
+<!--            <td>06453434</td>-->
+<!--            <td>8677</td>-->
+<!--            <td>-->
+<!--              <input class="presence" type="checkbox" name="" id="presence1">-->
+<!--              <label for="presence1">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label>-->
+<!--            </td>-->
+<!--            <td><input class="presence" type="checkbox" name="" id="traite1">-->
+<!--              <label for="traite1">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label></td>-->
+<!--            <td>-->
+<!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+<!--              <span class="check"><i class="fas fa-check"></i></span>-->
+<!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+<!--            </td>-->
+<!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>13H30 a 14H00</td>-->
+<!--            <td>stephanie clara</td>-->
+<!--            <td>06453434</td>-->
+<!--            <td>8677</td>-->
+<!--            <td>-->
+<!--              <input class="presence" type="checkbox" name="" id="presence2">-->
+<!--              <label for="presence2">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label>-->
+<!--            </td>-->
+<!--            <td><input input class="presence" type="checkbox" name="" id="traite2">-->
+<!--              <label for="traite2">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label></td>-->
+<!--            <td>-->
+<!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+<!--              <span class="check"><i class="fas fa-check"></i></span>-->
+<!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+<!--            </td>-->
+<!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>13H30 a 14H00</td>-->
+<!--            <td>stephanie clara</td>-->
+<!--            <td>06453434</td>-->
+<!--            <td>8677</td>-->
+<!--            <td>-->
+<!--              <input class="presence" type="checkbox" name="" id="presence3">-->
+<!--              <label for="presence3">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <input input class="presence" type="checkbox" name="" id="traite3">-->
+<!--              <label for="traite3">-->
+<!--                <div class="tick_mark"></div>-->
+<!--              </label>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+<!--              <span class="check"><i class="fas fa-check"></i></span>-->
+<!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+<!--            </td>-->
+<!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+<!--          </tr>-->
         </tbody>
       </table>
     </div>
@@ -161,8 +168,9 @@
   </script>
 
 
-  <script src="/js/function.js"></script>
-  <script src="/js/main.js"></script>
+  <script src="js/structure.js"></script>
+  <script src="js/function.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

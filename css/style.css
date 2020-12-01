@@ -107,6 +107,10 @@ body {
   font-size: 25px;
 }
 
+.container-table table thead .cont-pre {
+  padding: 4px;
+}
+
 .container-table table tbody {
   font-size: 22px;
   font-weight: 600;
@@ -117,10 +121,12 @@ body {
 }
 
 .container-table table tbody td span {
-  padding: 15px;
+  padding: 10px 10px 10px 5px;
 }
 
 .container-table table tbody td span .fas {
+  text-align: center;
+  font-size: 20px;
   color: #24829e;
 }
 
