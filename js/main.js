@@ -29,7 +29,7 @@ function editRdv(annee, mois, jour, rdv) {
     console.log(rdv);
     const type = getTypePermanence();
 
-                  // Mettre des inputs
+    // Mettre des inputs
     const ligneEdition = `<tr id="edition">
                   <td class="heures">
                     ${rdv.debut} à ${rdv.fin}
@@ -115,17 +115,16 @@ function loadDataToDisplay() {
             });
         });
         const ligneEdition = `<tr  id="edition"> 
+                   <td><input type="text" value=""/></td>\`;
                   <td class="heures"><input type="text" value=""/>
                    </td>
-                  <td class="names">
+                  <td class="names"><input type="text" value=""/>
 </td>
-                  <td class="tel"></td>
-                  <td class="ast"></td>
-                  <td class="presence"></td>
-                  <td class="traite"></td>
-                  <td class ='actions'>
-                   
-                  </td>
+                  <td class="tel"><input type="text" value=""/></td>
+                  <td class="ast"><input type="text" value=""/></td>
+                  <td class="presence"><input type="text" value=""/></td>
+                  <td class="traite"><input type="text" value=""/></td>
+                  <td class ='actions'><input type="text" value=""/></td>
                   <td><textarea name="" id="note" cols="45"  rows="4"></textarea></td>
             </tr>`;
         ligne += ligneEdition;
