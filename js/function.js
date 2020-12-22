@@ -26,7 +26,6 @@ function adapter(snap, annee, mois) {
     const jours = [];
     if (snap) {
         const snapObjet = Object.entries(snap);
-
         snapObjet.map(jourKeyValue => {
             // Créer les rdvs
             const rdvs = [];
@@ -34,6 +33,7 @@ function adapter(snap, annee, mois) {
             // Ajouter les rdv
             Object.entries(jourKeyValue[1]).map(rdvKeyValue => {
                 let nouveauRdv = new Rdv();
+                nouveauRdv.id = rdvKeyValue[0];
                 nouveauRdv.debut = rdvKeyValue[1].debut;
                 nouveauRdv.fin = rdvKeyValue[1].fin;
                 nouveauRdv.names = rdvKeyValue[1].names;

@@ -4,49 +4,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-    <ul>
+<div class="container">
+  <header>
+    <ul id="lol">
       <li><a href="index.html">pa</a></li>
-      <li><a href="psa.html">psa</a</li>
+      <li><a href="psa.html">psa</a></li>
       <li><a href="past.html">past</a></li>
     </ul>
-    </header>
-    <div class="container-title">
-      <h1>PSA 2020</h1>
-    </div>
-    <div class="container-permanence-all">
-      <div class="container-dates header-tables">Dates</div>
-      <div class="container-hours header-tables">Heures</div>
-      <div class="container-names header-tables">Noms Prénoms</div>
-      <div class="container-phones header-tables">N° de Tél</div>
-      <div class="container-presences header-tables">P ou A</div>
-      <div class="container-asts header-tables">N° AST</div>
-      <div class="container-traitements header-tables">Traiter</div>
-    </div>
-    <div class="container-months">Novembre</div>
-    <div id="container-body">
-      <div class="container-permanence-content">
-        <div class="container-dates content-tables"></div>
-        <div class="container-hours content-tables">13h30 - 14h15</div>
-        <div class="container-names content-tables">
-          <div contenteditable="true" class="names-user"></div>
-        </div>
-        <div contenteditable="true" class="container-phones content-tables"></div>
-        <div contenteditable="true" class="container-presences content-tables"></div>
-        <div contenteditable="true" class="container-asts content-tables"></div>
-        <div contenteditable="true" class="container-traitements content-tables"></div>
-      </div>
-    </div>
-    <div id="plus">+</div>
+  </header>
+  <div class="container-title">
+    <h1>PA 2020</h1>
   </div>
-  <script type="text/javascript" src="data.json"></script>
-  <script src="main.js"></script>
+  <div contenteditable="true" class="container-months">Novembre</div>
+  <div class="container-table">
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>horaire</th>
+        <th>nom & prénom</th>
+        <th>téléphone</th>
+        <th>AST</th>
+        <th class="cont-pre">Présence</th>
+        <th>traité</th>
+        <th class="action">Action</th>
+        <th class="action">Notes</th>
+      </tr>
+      </thead>
+      <tbody id="here-content-row">
+
+
+      <!--          <tr>-->
+      <!--            <td rowspan="4">22/02/2020</td>-->
+      <!--            <td>13H30 a 14H00</td>-->
+      <!--            <td>stephanie clara</td>-->
+      <!--            <td>06453434</td>-->
+      <!--            <td>8677</td>-->
+      <!--            <td>-->
+      <!--              <input class="presence" type="checkbox" name="" id="presence">-->
+      <!--              <label for="presence">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label>-->
+      <!--            </td>-->
+      <!--            <td><input class="presence" type="checkbox" name="" id="traite">-->
+      <!--              <label for="traite">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label></td>-->
+      <!--            <td>-->
+      <!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+      <!--              <span class="check"><i class="fas fa-check"></i></span>-->
+      <!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+      <!--            </td>-->
+      <!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+      <!--          </tr>-->
+      <!--          <tr>-->
+      <!--            <td>13H30 a 14H00</td>-->
+      <!--            <td>stephanie clara</td>-->
+      <!--            <td>06453434</td>-->
+      <!--            <td>8677</td>-->
+      <!--            <td>-->
+      <!--              <input class="presence" type="checkbox" name="" id="presence1">-->
+      <!--              <label for="presence1">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label>-->
+      <!--            </td>-->
+      <!--            <td><input class="presence" type="checkbox" name="" id="traite1">-->
+      <!--              <label for="traite1">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label></td>-->
+      <!--            <td>-->
+      <!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+      <!--              <span class="check"><i class="fas fa-check"></i></span>-->
+      <!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+      <!--            </td>-->
+      <!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+      <!--          </tr>-->
+      <!--          <tr>-->
+      <!--            <td>13H30 a 14H00</td>-->
+      <!--            <td>stephanie clara</td>-->
+      <!--            <td>06453434</td>-->
+      <!--            <td>8677</td>-->
+      <!--            <td>-->
+      <!--              <input class="presence" type="checkbox" name="" id="presence2">-->
+      <!--              <label for="presence2">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label>-->
+      <!--            </td>-->
+      <!--            <td><input input class="presence" type="checkbox" name="" id="traite2">-->
+      <!--              <label for="traite2">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label></td>-->
+      <!--            <td>-->
+      <!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+      <!--              <span class="check"><i class="fas fa-check"></i></span>-->
+      <!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+      <!--            </td>-->
+      <!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+      <!--          </tr>-->
+      <!--          <tr>-->
+      <!--            <td>13H30 a 14H00</td>-->
+      <!--            <td>stephanie clara</td>-->
+      <!--            <td>06453434</td>-->
+      <!--            <td>8677</td>-->
+      <!--            <td>-->
+      <!--              <input class="presence" type="checkbox" name="" id="presence3">-->
+      <!--              <label for="presence3">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label>-->
+      <!--            </td>-->
+      <!--            <td>-->
+      <!--              <input input class="presence" type="checkbox" name="" id="traite3">-->
+      <!--              <label for="traite3">-->
+      <!--                <div class="tick_mark"></div>-->
+      <!--              </label>-->
+      <!--            </td>-->
+      <!--            <td>-->
+      <!--              <span class="pen"><i class="fas fa-pen"></i></span>-->
+      <!--              <span class="check"><i class="fas fa-check"></i></span>-->
+      <!--              <span class="trash"><i class="fas fa-trash"></i></span>-->
+      <!--            </td>-->
+      <!--            <td><textarea name="" id="note" cols="45"  rows="4">Il me reste une demande de RSA a faire</textarea></td>-->
+      <!--          </tr>-->
+      </tbody>
+    </table>
+  </div>
+  <div id="container-toast">
+    <div class="msg">Confirmer vous la supression ?</div>
+    <div class="container-choix">
+      <div class="confirmer">Confirmer</div>
+      <div class="annuler">Annuler</div>
+    </div>
+  </div>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2IfzZoA6BxaY2C6T2rPIY3_3naLzyweM",
+    authDomain: "fir-data-4df6a.firebaseapp.com",
+    databaseURL: "https://fir-data-4df6a.firebaseio.com",
+    projectId: "fir-data-4df6a",
+    storageBucket: "fir-data-4df6a.appspot.com",
+    messagingSenderId: "775453798013",
+    appId: "1:775453798013:web:85260cc55ac26b82230b14",
+    measurementId: "G-TWFJCMSV57"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script src="js/structure.js"></script>
+<script src="js/function.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>
