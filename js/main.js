@@ -4,7 +4,7 @@
 let containerToast = document.getElementById('container-toast');
 let moisHere = document.querySelector('container-months');
 const tbody = document.getElementById('here-content-row');
-
+let editionIdEnCours;
 // trashs.forEach(trash => document.addEventListener('click',openModal()))
 
 // function openModal(){
@@ -24,32 +24,71 @@ let dbRef = firebase.database().ref();
 //   name: "cleoaaa",
 //   presence: false,
 // });
+function createInput(type, value) {
+    const input = document.createElement("input");
+    input.type = type;
+    input.value = value;
+    return input;
+}
 
-function editRdv(annee, mois, jour, rdv) {
-    console.log(rdv);
+function editRdv(trId) {
+    if (editionIdEnCours) {
+        return;
+    }
+    editionIdEnCours = trId;
+
+    // TODO : Afficher les icones valider/annuler de la ligne en cours d'édition
+
+    // TODO : Désactiver les boutons d'édition/suppression des autres lignes (avec une classe qui les met en gris, opacité réduite et pointer-event: none)
+
     const type = getTypePermanence();
+    const ligneToEdit = document.getElementById(trId);
+    const tds = ligneToEdit.getElementsByTagName("td");
+    const actions = ligneToEdit.getElementsByClassName('actions')[0];
+    actions.getElementsByClassName('consultation')[0].style.display="none";
+    actions.getElementsByClassName('modification')[0].style.display="block";
 
-    // Mettre des inputs
-    const ligneEdition = `<tr id="edition">
-                  <td class="heures">
-                    ${rdv.debut} à ${rdv.fin}
-                   </td>
-                  <td class="names">
-${rdv.names}
-</td>
-                  <td class="tel">${rdv.tel}</td>
-                  <td class="ast">${rdv.ast}</td>
-                  <td class="presence">${rdv.presence}</td>
-                  <td class="traite">${rdv.traite}</td>
-                  <td class ='actions'>
-                    <span onclick="editRdv(${annee.yyyy},${m.mm},${j.date},${rdv.id})" class="pen"><i class="fas fa-pen"></i></span>
-                     <span class="check"><i class="fas fa-check"></i></span>
-                     <span class="trash"><i class="fas fa-trash"></i></span>
-                  </td>
-                  <td><textarea name="" id="note" cols="45"  rows="4">${rdv.commentaire}</textarea></td>
-            </tr>`;
+    for (let td of tds) {
 
-    console.log(annee, mois, jour, rdv, type);
+        // console.log(td);
+        spanElt = td.getElementsByTagName("span")[0];
+        // console.log(spanElt); // <span .....
+        if (spanElt) {
+            let spanClass = spanElt.className;
+            if (spanClass.startsWith("edit-")) {
+                const type = spanClass.replace("edit-", "");
+                const val = spanElt.textContent;
+                // console.log(type, val);
+                switch (type) {
+                    case 'textarea' :
+                        const textarea = document.createElement('textarea');
+                        td.appendChild(textarea);
+                        break;
+                    case 'text' :
+                    case 'checkbox' :
+                        const input = createInput(type, val);
+                        td.appendChild(input);
+                        break;
+                }
+
+                spanElt.style.display = "none";
+            }
+        }
+    }
+}
+function cancelActions(trId){
+
+    editionIdEnCours = trId;
+    const ligneToEdit = document.getElementById(trId);
+
+    const actions = ligneToEdit.getElementsByClassName('actions')[0];
+
+    actions.getElementsByClassName('modification')[0].style.display="none";
+    console.log((actions.getElementsByClassName('modification')[0]));
+    actions.getElementsByClassName('consultation')[0].style.display="block";
+}
+function resetEdition() {
+    // TODO : fonction qui met à zéro l'id en cours d'édition
 }
 
 function getTypePermanence() {
@@ -72,7 +111,6 @@ function loadDataToDisplay() {
     const result = getLatestPermanences(type);
     result.then(annee => {
         let ligne = '';
-
         //   <td>
         //     <input class="presence" type="checkbox" name="" id="presence">
         //     <label for="presence">
@@ -90,8 +128,8 @@ function loadDataToDisplay() {
             m.jours.forEach(j => {
                 const date = `${j.date}/${m.mm}/${annee.yyyy}`;
                 j.rdvs.forEach((rdv, index) => {
-                    ligne += '<tr id="${rdv.id}">';
-                    console.log(rdv);
+                    const currentId = `${annee.yyyy}-${m.mm}-${j.date}-${rdv.id}`;
+                    ligne += `<tr id="${currentId}">`;
                     if (index === 0) {
                         ligne += `<td rowspan='${j.rdvs.length}'>${date}</td>`;
                     }
@@ -99,35 +137,29 @@ function loadDataToDisplay() {
                           <td class="heures">
                             <span class="debut">${rdv.debut}</span> à <span class="fin">${rdv.fin}</span>
                           </td>
-                          <td class="names">${rdv.names}</td>
-                          <td class="tel">${rdv.tel}</td>
-                          <td class="ast">${rdv.ast}</td>
-                          <td class="presence">${rdv.presence}</td>
-                          <td class="traite">${rdv.traite}</td>
+                          <td class="names"><span class="edit-text">${rdv.names}</span></td>
+                          <td class="tel"><span class="edit-text">${rdv.tel}</span></td>
+                          <td class="ast"><span class="edit-text">${rdv.ast}</span></td>
+                          <td class="presence"><span class="edit-text">${rdv.presence}</span></td>
+                          <td class="traite"><span class="edit-text">${rdv.traite}</span></td>
                           <td class ='actions'>
-                             <span onclick="editRdv(${annee.yyyy},${m.mm},${j.date},${rdv.id})" class="pen"><i class="fas fa-pen"></i></span>
-                             <span class="check"><i class="fas fa-check"></i></span>
+                             <div class="consultation">
+                             <span onclick="editRdv('${currentId}')" class="pen"><i class="fas fa-pen"></i></span>
                              <span class="trash"><i class="fas fa-trash"></i></span>
+                             
+                             </div>
+                             <div class='modification'>
+                                  <span onclick="cancelActions('${currentId}')" class="cancel"><i class="fas fa-times"></i></span>
+                                  <span class="validatevalidate"><i class="fas fa-check"></i></span>
+                   
+                             </div>
                           </td>
-                          <td><textarea name="" id="note" cols="45"  rows="4">${rdv.commentaire}</textarea></td>`;
+                        <td><span class="edit-textarea"><textarea disabled name="" id="note" cols="45"  rows="4">${rdv.commentaire}</textarea></span></td>`;
+                    // TODO : Créer les icones d'action pour Valider / Annuler masquées par défaut
                     ligne += '</tr>';
                 });
             });
         });
-        const ligneEdition = `<tr  id="edition"> 
-                   <td><input type="text" value=""/></td>\`;
-                  <td class="heures"><input type="text" value=""/>
-                   </td>
-                  <td class="names"><input type="text" value=""/>
-</td>
-                  <td class="tel"><input type="text" value=""/></td>
-                  <td class="ast"><input type="text" value=""/></td>
-                  <td class="presence"><input type="text" value=""/></td>
-                  <td class="traite"><input type="text" value=""/></td>
-                  <td class ='actions'><input type="text" value=""/></td>
-                  <td><textarea name="" id="note" cols="45"  rows="4"></textarea></td>
-            </tr>`;
-        ligne += ligneEdition;
         tbody.innerHTML = ligne;
     });
 }

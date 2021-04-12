@@ -20,7 +20,15 @@ function update(type, annee, mois, jour, idRdv, rdv) {
     });
 }
 
-// Mappe l'objet retourné par firebase pour que ça corresponde la structure du front 
+function cleanObject(obj) {
+    Object.keys(obj).forEach(key => {
+        if (!obj[key]) {
+             obj[key] = '';
+        }
+    });
+}
+
+// Mappe l'objet retourné par firebase pour que ça corresponde la structure du front
 function adapter(snap, annee, mois) {
     // console.log(snap);
     const jours = [];
@@ -42,6 +50,7 @@ function adapter(snap, annee, mois) {
                 nouveauRdv.commentaire = rdvKeyValue[1].commentaire;
                 nouveauRdv.traite = rdvKeyValue[1].traite;
                 nouveauRdv.tel = rdvKeyValue[1].tel;
+                cleanObject(nouveauRdv);
                 //ou spread
                 // nouveauRdv =  {id:rdvKeyValue[0],...rdvKeyValue[1]};
                 rdvs.push(nouveauRdv);
@@ -64,7 +73,8 @@ function getLatestPermanences(type) {
     // 1. Récupérer la date (now)
     const date = new Date();
     const annee = date.getFullYear();
-    const mois = date.getMonth() + 1;
+    // const mois = date.getMonth() + 1;
+    const mois = 2;
     const jour = date.getDay();
     // 2. Appeler le read avec (type, annee, mois en fonction de la date) et mettre le résultat dans une const
     const data = read(type, annee, mois)

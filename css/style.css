@@ -1,18 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script&family=Kaushan+Script&family=PT+Serif:ital,wght@1,400;1,700&family=Satisfy&display=swap");
-.centered, .container-months, .container-table, #container-toast, #container-toast .msg, #container-toast .container-choix {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.centered, #container-toast .container-choix, #container-toast .msg, #container-toast, .container-table, .container-months {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   outline: none;
 }
 
@@ -24,28 +19,20 @@ body {
 .container header {
   margin-bottom: 2rem;
 }
-
 .container header ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
-
 .container header ul li {
-  font-family: "Caveat";
+  font-family: "Caveat", "cursive";
   font-size: 20px;
   font-weight: 600;
   padding: 1rem;
   margin-right: 5rem;
   list-style-type: none;
 }
-
 .container header ul li a {
   position: relative;
-  -webkit-transition: 0.5s all;
   transition: 0.5s all;
   letter-spacing: 1px;
   padding: 1rem;
@@ -53,88 +40,71 @@ body {
   text-decoration: none;
   color: #191a1a;
 }
-
 .container header ul li a:after {
-  content: '';
-  display: -webkit-box;
-  display: -ms-flexbox;
+  content: "";
   display: flex;
   position: absolute;
   bottom: 3px;
-  width: 0%;
+  width: 0;
   height: 3px;
   background-color: #2ABDBD;
-  -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
 }
-
 .container header ul li a:hover::after {
   width: 100%;
 }
-
 .container .container-title {
   text-align: center;
   font-weight: 900;
   font-size: 30px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-bottom: 30px;
   letter-spacing: 9px;
-  font-family: 'Kaushan Script', sans-serif;
+  font-family: "Kaushan Script", sans-serif;
 }
 
 .container-months {
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 15px;
-  font-family: 'Kaushan Script', sans-serif;
+  font-family: "Kaushan Script", sans-serif;
 }
 
 .container-table {
   text-align: center;
   font-family: "Caveat", sans-serif;
 }
-
 .container-table table {
   border-collapse: collapse;
 }
-
 .container-table table thead {
   background-color: #2ABDBD;
   font-weight: bold;
   text-transform: capitalize;
   font-size: 25px;
 }
-
 .container-table table thead .cont-pre {
   padding: 4px;
 }
-
 .container-table table tbody {
   font-size: 22px;
   font-weight: 600;
 }
-
-.container-table table tbody td .check {
+.container-table table tbody td .modification {
   display: none;
 }
-
 .container-table table tbody td span {
   padding: 10px 10px 10px 5px;
 }
-
 .container-table table tbody td span .fas {
   text-align: center;
   font-size: 20px;
   color: #24829e;
 }
-
 .container-table table tbody td span:hover {
   cursor: pointer;
   text-shadow: 1px 1px 2px #006eff;
 }
-
 .container-table table td, .container-table table th {
   border: 1px solid;
   padding: 1rem;
@@ -155,13 +125,10 @@ label {
   height: 20px;
   margin: 0 auto;
   background-color: #f72414;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   border-radius: 50%;
-  -webkit-box-shadow: 0 7px 10px #ffbeb8;
-          box-shadow: 0 7px 10px #ffbeb8;
+  box-shadow: 0 7px 10px #ffbeb8;
   cursor: pointer;
-  -webkit-transition: 0.2s ease transform, 0.2s ease background-color, 0.2s ease box-shadow;
   transition: 0.2s ease transform, 0.2s ease background-color, 0.2s ease box-shadow;
   z-index: 1;
 }
@@ -175,23 +142,19 @@ label:before {
   width: 10px;
   height: 10px;
   margin: 0 auto;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   border-radius: 50%;
-  -webkit-transition: 0.3s ease width, 0.2s ease height;
   transition: 0.3s ease width, 0.2s ease height;
 }
 
 label:hover:before {
   width: 8px;
   height: 8px;
-  -webkit-box-shadow: inset 0 7px 10px #fff;
-          box-shadow: inset 0 7px 10px #fff;
+  box-shadow: inset 0 7px 10px #fff;
 }
 
 label:active {
-  -webkit-transform: translateY(-50%) scale(0.9);
-          transform: translateY(-50%) scale(0.9);
+  transform: translateY(-50%) scale(0.9);
 }
 
 .tick_mark {
@@ -202,8 +165,7 @@ label:active {
   width: 60px;
   height: 30px;
   margin: 0 auto;
-  -webkit-transform: rotateZ(-46deg);
-          transform: rotateZ(-46deg);
+  transform: rotateZ(-46deg);
   overflow: hidden;
 }
 
@@ -213,7 +175,6 @@ label:active {
   background-color: #fff;
   border-radius: 2px;
   opacity: 1;
-  -webkit-transition: 0.2s ease transform, 0.2s ease opacity;
   transition: 0.2s ease transform, 0.2s ease opacity;
 }
 
@@ -222,10 +183,8 @@ label:active {
   bottom: 0;
   width: 3px;
   height: 8px;
-  -webkit-box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
-          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
-  -webkit-transform: translateY(-68px);
-          transform: translateY(-68px);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(-68px);
 }
 
 .tick_mark:after {
@@ -233,26 +192,22 @@ label:active {
   bottom: 0;
   width: 22%;
   height: 3px;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-  -webkit-transform: translateX(78px);
-          transform: translateX(78px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(78px);
 }
 
-*[class^="presen"]:checked + label, *[class^="trait"]:checked + label {
+*[class^=presen]:checked + label, *[class^=trait]:checked + label {
   background-color: #07d410;
-  -webkit-box-shadow: 0 7px 10px #727272;
-          box-shadow: 0 7px 10px #727272;
+  box-shadow: 0 7px 10px #727272;
 }
 
-*[class^="presen"]:checked + label:before, *[class^="trait"]:checked + label:before {
+*[class^=presen]:checked + label:before, *[class^=trait]:checked + label:before {
   width: 0;
   height: 0;
 }
 
-*[class^="presen"]:checked + label .tick_mark:before, *[class^="trait"]:checked + label .tick_mark:before, *[class^="presen"]:checked + label .tick_mark:after, *[class^="trait"]:checked + label .tick_mark:after {
-  -webkit-transform: translate(30px);
-          transform: translate(30px);
+*[class^=presen]:checked + label .tick_mark:before, *[class^=trait]:checked + label .tick_mark:before, *[class^=presen]:checked + label .tick_mark:after, *[class^=trait]:checked + label .tick_mark:after {
+  transform: translate(30px);
   opacity: 1;
 }
 
@@ -260,44 +215,30 @@ label:active {
   position: absolute;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
   padding: 1rem;
   color: #191a1a;
   font-family: "Caveat", sans-serif;
   font-weight: 900;
-  position: absolute;
   background-color: #2ECFCF;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 2px 3px #191a1a;
-          box-shadow: 1px 2px 3px #191a1a;
+  box-shadow: 1px 2px 3px #191a1a;
   display: none;
 }
-
 #container-toast .msg {
   font-size: 20px;
 }
-
 #container-toast .container-choix {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 #container-toast .container-choix .confirmer, #container-toast .container-choix .annuler {
   background-color: #fff;
   color: #191a1a;
   display: block;
   padding: 15px;
   margin: 24px;
-  -webkit-box-shadow: 1px 2px 3px #191a1a;
-          box-shadow: 1px 2px 3px #191a1a;
+  box-shadow: 1px 2px 3px #191a1a;
 }
+
 /*# sourceMappingURL=style.css.map */
