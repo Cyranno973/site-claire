@@ -20,6 +20,10 @@ function update(type, annee, mois, jour, idRdv, rdv) {
     });
 }
 
+/**
+ * permet de vider l'objet
+ * @param obj
+ */
 function cleanObject(obj) {
     Object.keys(obj).forEach(key => {
         if (!obj[key]) {

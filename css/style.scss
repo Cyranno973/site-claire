@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script&family=Kaushan+Script&family=PT+Serif:ital,wght@1,400;1,700&family=Satisfy&display=swap');
 
 
-$color0: #fff;
+$color0: #ffffff;
 $color1: #191a1a;
 $color2: #2ABDBD;
 $color3: #2ECFCF;
@@ -265,7 +265,16 @@ label:active {
   transform: translate(30px);
   opacity: 1;
 }
-
+.container-contain-toast{
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  display: none;
+  //background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(11, 76, 95, 0.4);
+}
 #container-toast {
   position: absolute;
   top: 40%;
@@ -273,35 +282,55 @@ label:active {
   transform: translate(-50%, -50%);
   flex-direction: column;
   @extend .centered;
-  padding: 1rem;
+  padding: 2.7rem;
   color: $color1;
   font-family: "Caveat", sans-serif;
   font-weight: 900;
-  background-color: $color3;
+  background-color: $color0;
   border-radius: 5px;
+  border: 3px solid $color2;
   box-shadow: 1px 2px 3px $color1;
   display: none;
 
 
+
   .msg {
     @extend .centered;
-    font-size: 20px;
+    font-size: 28px;
+    color: $color2;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 1px #afdddaab
   }
 
   .container-choix {
     display: flex;
     @extend .centered;
+    margin-top: 2.7rem;
 
     .confirmer, .annuler {
-      background-color: #fff;
-      color: $color1;
+      color: $color0;
       display: block;
-      padding: 15px;
-      margin: 24px;
+      padding: 20px;
+      margin: 2px 24px;
+      width: 70px;
+      text-align: center;
       box-shadow: 1px 2px 3px $color1;
+      @extend .centered;
+      background-color: $color2;
+      font-size: 22px;
+
+
+    }
+    .confirmer{
+
     }
   }
 }
 
 #note {
+}
+.disabled-action{
+  pointer-events: none;
+  cursor: none;
+  opacity: 0.8;
 }

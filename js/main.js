@@ -4,6 +4,7 @@
 let containerToast = document.getElementById('container-toast');
 let moisHere = document.querySelector('container-months');
 const tbody = document.getElementById('here-content-row');
+
 let editionIdEnCours;
 // trashs.forEach(trash => document.addEventListener('click',openModal()))
 
@@ -35,30 +36,22 @@ function editRdv(trId) {
     if (editionIdEnCours) {
         return;
     }
+    [...document.querySelectorAll(".consultation")].forEach(elem => elem.style.display = "none");
     editionIdEnCours = trId;
-
-    // TODO : Afficher les icones valider/annuler de la ligne en cours d'édition
-
-    // TODO : Désactiver les boutons d'édition/suppression des autres lignes (avec une classe qui les met en gris, opacité réduite et pointer-event: none)
 
     const type = getTypePermanence();
     const ligneToEdit = document.getElementById(trId);
     const tds = ligneToEdit.getElementsByTagName("td");
     const actions = ligneToEdit.getElementsByClassName('actions')[0];
-    actions.getElementsByClassName('consultation')[0].style.display="none";
-    actions.getElementsByClassName('modification')[0].style.display="block";
+    actions.getElementsByClassName('modification')[0].style.display = "inline-block";
 
     for (let td of tds) {
-
-        // console.log(td);
-        spanElt = td.getElementsByTagName("span")[0];
-        // console.log(spanElt); // <span .....
+        const spanElt = td.getElementsByTagName("span")[0];
         if (spanElt) {
-            let spanClass = spanElt.className;
+            const spanClass = spanElt.className;
             if (spanClass.startsWith("edit-")) {
                 const type = spanClass.replace("edit-", "");
                 const val = spanElt.textContent;
-                // console.log(type, val);
                 switch (type) {
                     case 'textarea' :
                         const textarea = document.createElement('textarea');
@@ -70,23 +63,38 @@ function editRdv(trId) {
                         td.appendChild(input);
                         break;
                 }
-
                 spanElt.style.display = "none";
             }
         }
     }
 }
-function cancelActions(trId){
 
-    editionIdEnCours = trId;
+function cancelEdit(trId) {
+    editionIdEnCours = null;
+    [...document.querySelectorAll(".consultation")].forEach(elem => elem.style.display = "inline-block");
+    [...document.querySelectorAll(".modification")].forEach(elem => elem.style.display = "none");
     const ligneToEdit = document.getElementById(trId);
 
-    const actions = ligneToEdit.getElementsByClassName('actions')[0];
+    [...ligneToEdit.getElementsByTagName("td")].forEach(td => {
+        const spanElem = td.getElementsByTagName("span")[0];
+        if (spanElem) {
+            spanElem.style.display = "inline-block";
+        }
+        const inputElem = td.querySelectorAll("input,textarea")[0];
 
-    actions.getElementsByClassName('modification')[0].style.display="none";
-    console.log((actions.getElementsByClassName('modification')[0]));
-    actions.getElementsByClassName('consultation')[0].style.display="block";
+        if (inputElem) {
+            inputElem.parentNode.removeChild(inputElem);
+        }
+    });
 }
+
+function deleteRdv(trId) {
+    console.log("lol");
+    containerToast.style.display = "block";
+    document.querySelector(".container-contain-toast").style.display = "block";
+
+}
+
 function resetEdition() {
     // TODO : fonction qui met à zéro l'id en cours d'édition
 }
@@ -145,11 +153,11 @@ function loadDataToDisplay() {
                           <td class ='actions'>
                              <div class="consultation">
                              <span onclick="editRdv('${currentId}')" class="pen"><i class="fas fa-pen"></i></span>
-                             <span class="trash"><i class="fas fa-trash"></i></span>
+                             <span onclick="deleteRdv('${currentId}')" class="trash"><i class="fas fa-trash"></i></span>
                              
                              </div>
                              <div class='modification'>
-                                  <span onclick="cancelActions('${currentId}')" class="cancel"><i class="fas fa-times"></i></span>
+                                  <span onclick="cancelEdit('${currentId}')" class="cancel"><i class="fas fa-times"></i></span>
                                   <span class="validatevalidate"><i class="fas fa-check"></i></span>
                    
                              </div>
