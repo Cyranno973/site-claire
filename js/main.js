@@ -4,8 +4,11 @@
 let containerToast = document.getElementById('container-toast');
 let moisHere = document.querySelector('container-months');
 const tbody = document.getElementById('here-content-row');
-
+const annuler = document.querySelector('.annuler');
+const confirmer = document.querySelector('.confirmer');
+const container = document.querySelector('.container');
 let editionIdEnCours;
+const fieldsToUpdate = [];
 // trashs.forEach(trash => document.addEventListener('click',openModal()))
 
 // function openModal(){
@@ -55,6 +58,7 @@ function editRdv(trId) {
                 switch (type) {
                     case 'textarea' :
                         const textarea = document.createElement('textarea');
+                        textarea.value = val;
                         td.appendChild(textarea);
                         break;
                     case 'text' :
@@ -89,10 +93,12 @@ function cancelEdit(trId) {
 }
 
 function deleteRdv(trId) {
-    console.log("lol");
-    containerToast.style.display = "block";
-    document.querySelector(".container-contain-toast").style.display = "block";
-
+    modal.style.display = "block";
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
 }
 
 function resetEdition() {
@@ -148,22 +154,24 @@ function loadDataToDisplay() {
                           <td class="names"><span class="edit-text">${rdv.names}</span></td>
                           <td class="tel"><span class="edit-text">${rdv.tel}</span></td>
                           <td class="ast"><span class="edit-text">${rdv.ast}</span></td>
-                          <td class="presence"><span class="edit-text">${rdv.presence}</span></td>
-                          <td class="traite"><span class="edit-text">${rdv.traite}</span></td>
+                          <td class="presence"><span class="edit-checkbox">${rdv.presence}</span></td>
+                          <td class="traite"><span class="edit-checkbox">${rdv.traite}</span></td>
+                          <td>
+                            <span class="edit-textarea">${rdv.commentaire}</span>
+                          </td>
+
                           <td class ='actions'>
                              <div class="consultation">
                              <span onclick="editRdv('${currentId}')" class="pen"><i class="fas fa-pen"></i></span>
-                             <span onclick="deleteRdv('${currentId}')" class="trash"><i class="fas fa-trash"></i></span>
+                             <span onclick="deleteRdv('${currentId}')" id="myBtn" class=" trash"><i class="fas fa-trash"></i></span>
                              
                              </div>
                              <div class='modification'>
                                   <span onclick="cancelEdit('${currentId}')" class="cancel"><i class="fas fa-times"></i></span>
-                                  <span class="validatevalidate"><i class="fas fa-check"></i></span>
+                                  <span class="validate" onclick="updateValid('${currentId}')"><i class="fas fa-check"></i></span>
                    
                              </div>
-                          </td>
-                        <td><span class="edit-textarea"><textarea disabled name="" id="note" cols="45"  rows="4">${rdv.commentaire}</textarea></span></td>`;
-                    // TODO : Créer les icones d'action pour Valider / Annuler masquées par défaut
+                          </td>`;
                     ligne += '</tr>';
                 });
             });
@@ -172,4 +180,79 @@ function loadDataToDisplay() {
     });
 }
 
+function updateValid(trId) {
+    const keys = trId.split('-');
+    const ligneToEdit = document.getElementById(trId);
+    const tds = [...ligneToEdit.getElementsByTagName("td")];
+    // console.log(trId);
+    const rdv = new Rdv();
+    rdv.id = keys[3];
+    rdv.names = extractValueInput(tds[2]);
+    rdv.tel = extractValueInput(tds[3]);
+    rdv.ast = extractValueInput(tds[4]);
+    rdv.presence = extractValueInput(tds[5]);
+    rdv.traite = extractValueInput(tds[6]);
+    rdv.commentaire = extractValueInput(tds[7]);
+    console.log(rdv);
+
+    const type = getTypePermanence();
+    update(type, keys[0], keys[1], keys[2], keys[3], rdv);
+
+}
+
+function extractValueInput(td) {
+    const inputElem = td.querySelectorAll("input,textarea")[0];
+    //si input existant
+    if (inputElem) {
+        return inputElem.value;
+    }
+    return null;
+}
+
 loadDataToDisplay();
+
+annuler.addEventListener('click', closeModal);
+confirmer.addEventListener('click', confirmerDelete);
+
+function confirmerDelete() {
+    createNotification();
+    closeModal();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+const closeBtn = document.getElementById("closeBtn");
+
+function openOpen() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+// with function with name
+closeBtn.addEventListener('click', closeModal);
+
+function closeModal() {
+    modal.style.display = "none";
+
+}
+
+//When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+function createNotification() {
+    const notif = document.createElement('div');
+    notif.classList.add('toast');
+    notif.innerText = "Rdv supprimer";
+    document.body.appendChild(notif);
+    setTimeout(() => {
+        notif.remove();
+
+    }, 2000);
+}

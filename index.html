@@ -23,6 +23,7 @@
     </div>
     <div contenteditable="true" class="container-months">Novembre</div>
     <div class="container-table">
+
         <table>
             <thead>
             <tr>
@@ -33,8 +34,8 @@
                 <th>AST</th>
                 <th class="cont-pre">Présence</th>
                 <th>traité</th>
-                <th class="action">Action</th>
                 <th class="action">Notes</th>
+                <th class="action"></th>
             </tr>
             </thead>
             <tbody id="here-content-row">
@@ -134,15 +135,24 @@
             </tbody>
         </table>
     </div>
-    <div class="container-contain-toast">
-        <div id="container-toast">
-            <div class="msg">Es-tu sûre de vouloir supprimer ce RDV ?</div>
-            <div class="container-choix">
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Es-tu sûre de vouloir supprimer ce RDV ?</h2>
+                <span class="date-RDv">Du 19/2/2021</span>
+                <span class="heure-rdv">De 9h00 à 10h00 </span>
+                <span id="closeBtn">&times;</span>
+            </div>
+            <div class="modal-body">
                 <div class="confirmer">Oui</div>
                 <div class="annuler">Non</div>
             </div>
         </div>
     </div>
+
 </div>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->

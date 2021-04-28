@@ -7,7 +7,7 @@ function read(type, annee, mois, jour = "", idRdv = "") {
 // function update permet la mise a jours de donnee
 function update(type, annee, mois, jour, idRdv, rdv) {
     const uri = `App/${type}/${annee}/${mois}/${jour}/${idRdv}`;
-
+    cleanObject(rdv);
     read(type, annee, mois, jour, idRdv).then((snap) => {
         const rdvOld = snap.val();
         const newVal = {...rdvOld, ...rdv};
